@@ -95,6 +95,6 @@ def retImpsurf(p_impsurf, page):
     bo = request.json()
     return bo
 
-app.route('/health')
+@app.route('/health')
 def retHealth():
     return 'Web Service is Working'
