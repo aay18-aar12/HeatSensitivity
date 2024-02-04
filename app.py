@@ -4,12 +4,10 @@ import math
 
 app = Flask(__name__)
 
-@app.route('/all/<int:page>')
-def hello_world(page):
+@app.route('/all')
+def hello_world():
 
-    ko = (page*1000)-1000
-
-    request2 = requests.get('https://maps2.dcgis.dc.gov/dcgis/rest/services/DCGIS_DATA/Health_WebMercator/MapServer/32/query?where=1%3D1&outFields=*&outSR=4326&resultOffset='+str(ko)+'&f=json')
+    request2 = requests.get('https://maps2.dcgis.dc.gov/dcgis/rest/services/DCGIS_DATA/Health_WebMercator/MapServer/32/query?where=1%3D1&outFields=*&outSR=4326&f=json')
 
     return request2.json()
 
